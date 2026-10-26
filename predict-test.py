@@ -11,6 +11,7 @@ customer = {
     'number_of_courses_viewed': 3,
     'interaction_count': 7,
     'lead_score': 0.75,
+    'customer_id': 'TestSubject001'
 }
 
 response = requests.post(url, json=customer).json()
