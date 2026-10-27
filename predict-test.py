@@ -11,13 +11,16 @@ customer = {
     'number_of_courses_viewed': 3,
     'interaction_count': 7,
     'lead_score': 0.75,
-    'customer_id': 'TestSubject001'
+    'customerid': 'TestSubject001'
 }
+response = requests.post(url, json=customer)
+#response = requests.post(url, json=customer).json()
+#print(response)
+print("Status code:", response.status_code)
+print("Contenido devuelto:\n", response.text)
 
-response = requests.post(url, json=customer).json()
-print(response)
 
 if response['churn'] == True:
-    print('sending promo email to %s' % customer_id)
+    print('sending promo email to %s' % customer['customerid'])
 else:
-    print('not sending promo email to %s' % customer_id)
+    print('not sending promo email to %s' % customer['customerid'])
